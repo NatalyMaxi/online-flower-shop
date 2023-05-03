@@ -11,7 +11,9 @@ const Favourites = () => {
         <img className={classes.img} src={smail} alt='Грустный смайлик' />
         <h2 className={classes.title}>Закладок нет</h2>
         <p className={classes.text}>Вы пока ничего не добавили в закладки</p>
-        <Button />
+        <Button
+          buttonText='Вернуться назад'
+        />
       </div>
       {/* <Title
         title='Мои закладки'

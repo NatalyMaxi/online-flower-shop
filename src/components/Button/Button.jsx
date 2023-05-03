@@ -1,13 +1,12 @@
 import classes from './Button.module.css';
 
-const Button = () => {
+const Button = ({ buttonText }) => {
 
   return (
     <button
       className={classes.button}
       type='button'>
-      <span>&larr;</span>
-      Вернуться назад
+      {buttonText}
     </button>
   )
 }

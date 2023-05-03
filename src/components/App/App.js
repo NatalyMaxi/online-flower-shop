@@ -8,7 +8,8 @@ import Purchases from '../Purchases/Purchases';
 
 const App = () => {
   return (
-    <CurrentUserContext.Provider >
+    // <CurrentUserContext.Provider >
+    <>
       <Header />
       <Routes>
         <Route
@@ -17,11 +18,11 @@ const App = () => {
         />
         <Route
           path='basket'
-          element={<Basket/>}
+          element={<Basket />}
         />
         <Route
           path='/favourites'
-          element={<Favourites/>}
+          element={<Favourites />}
         />
         <Route
           path='/purchases'
@@ -32,8 +33,10 @@ const App = () => {
           element={<Navigate to='/flowers' replace />}
         />
       </Routes>
+    </>
 
-    </CurrentUserContext.Provider>
+
+    // </CurrentUserContext.Provider>
   );
 }
 

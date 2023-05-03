@@ -11,7 +11,9 @@ const Purchases = () => {
         <img className={classes.img} src={smail} alt='Печальный смайлик' />
         <h2 className={classes.title}>Покупок нет</h2>
         <p className={classes.text}>Вы ничего не покупали</p>
-        <Button />
+        <Button
+          buttonText='Вернуться назад'
+        />
       </div>
       {/* <Title
       title='Мои покупки'

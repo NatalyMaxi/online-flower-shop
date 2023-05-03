@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <div className={classes.header}>
       <NavLink
-        NavLink to='/flowers'
+        to='/flowers'
       >
         <Logo />
       </NavLink>
