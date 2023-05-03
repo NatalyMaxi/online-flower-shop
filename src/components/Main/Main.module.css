@@ -1,0 +1,19 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1280px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 0 auto;
+  gap: 40px;
+  flex: 1;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

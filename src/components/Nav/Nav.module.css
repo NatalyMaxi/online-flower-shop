@@ -1,0 +1,35 @@
+.nav__items {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav__link {
+  display: flex;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.24px;
+  color: #373745;
+  text-decoration: none;
+  padding: 4px 12px;
+}
+.nav__link_active {
+  background: #e5f9f2;
+  border-radius: 10px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  height: 25px;
+}
+
+.nav__img {
+  cursor: pointer;
+}

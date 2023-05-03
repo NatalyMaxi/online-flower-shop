@@ -1,0 +1,30 @@
+.search {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #373745;
+  width: 300px;
+  height: 38px;
+  border: 1px solid #dcdcdf;
+  border-radius: 10px;
+  padding: 8px 10px;
+  box-sizing: border-box;
+}
+
+.search:focus {
+  outline: none;
+  border: 1px solid #2cc990;
+}
+
+::-webkit-input-placeholder {
+  color: #b1b1b7;
+}
+::-moz-placeholder {
+  color: #b1b1b7;
+} /* Firefox 19+ */
+:-moz-placeholder {
+  color: #b1b1b7;
+} /* Firefox 18- */
+:-ms-input-placeholder {
+  color: #b1b1b7;
+}
