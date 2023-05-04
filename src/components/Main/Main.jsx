@@ -3,8 +3,9 @@ import Grid from '../Grid/Grid';
 import classes from './Main.module.css';
 import Search from '../Search/Search';
 import Cart from '../Cart/Cart';
+import Card from '../Card/Card';
 
-const Main = ({ cartOpen, onClose }) => {
+const Main = ({ cartOpen, onClose, items, addedToCart, onAddToCart, onDeleteFromCart, isAddedFlowers }) => {
 
   return (
     <main className={classes.content}>
@@ -12,10 +13,32 @@ const Main = ({ cartOpen, onClose }) => {
         <Title title='Комнатные растения' />
         <Search />
       </div>
-      <Grid />
+      <Grid>
+        {
+          items.map((item) => {
+            return <Card
+              key={item.flowerId}
+              flowerId={item.flowerId}
+              flower={item}
+              name={item.name}
+              link={item.link}
+              price={item.price}
+              onAddToCart={() => {
+                onAddToCart(item)
+              }}
+              onDeleteFromCart={() => {
+                onDeleteFromCart(item)
+              }}
+              isAddedFlowers={isAddedFlowers}
+            />
+          })
+        }
+      </Grid>
       <Cart
         onClose={onClose}
         cartOpen={cartOpen}
+        addedToCart={addedToCart}
+        onDeleteFromCart={onDeleteFromCart}
       />
     </main>
   );

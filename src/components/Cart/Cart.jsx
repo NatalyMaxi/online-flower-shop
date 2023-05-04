@@ -6,9 +6,9 @@ import classes from './Cart.module.css';
 import Button from '../Button/Button';
 import SmallCard from '../SmallCard/SmallCard';
 
-const Cart = ({ number, cartOpen, onClose }) => {
+const Cart = ({ number, cartOpen, onClose, addedToCart, onDeleteFromCart }) => {
   // const navigate = useNavigate();
-
+  // console.log(addedToCart)
   return (
     <div className={cartOpen ? `${classes.cart} ${classes.cart_open}` : `${classes.cart}`}>
       <div className={cartOpen ? `${classes.container} ${classes.container_open}` : `${classes.container}`}>
@@ -20,14 +20,19 @@ const Cart = ({ number, cartOpen, onClose }) => {
           onClick={onClose}
         >&times;</button>
         <div className={classes.box}>
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
-          <SmallCard />
+          {
+            addedToCart.map((item) => {
+              return <SmallCard
+                key={item.id}
+                flower={item}
+                flowerId={item.flowerId}
+                name={item.name}
+                link={item.link}
+                price={item.price}
+                onDeleteFromCart={onDeleteFromCart}
+              />
+            })
+          }
         </div>
         <div className={classes.totalPrice}>
           <span>Итого:</span>

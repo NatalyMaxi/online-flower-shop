@@ -1,15 +1,25 @@
 import classes from './SmallCard.module.css';
 
-const SmallCard = ({ price }) => {
+const SmallCard = ({ name, link, price, onDeleteFromCart }) => {
+
+  // const handleDeleteFlower = () => {
+  //   onDeleteFromCart(flower.flowerId)
+  // }
+
   return (
     <div className={classes.card}>
-      <img className={classes.img} src='https://cdn1.ozone.ru/s3/multimedia-u/6020702730.jpg' alt='Цветок' />
+      <img className={classes.img} src={link} alt={`${name}`} />
       <div className={classes.priceContainer}>
-        <h4 className={classes.title}>Цветок цветок Цветок цветок Цветок цветок Цветок цветок Цветок цветок</h4>
+        <h4 className={classes.title}>{name}</h4>
         <span className={classes.price}>{`Цена: ${price}`}</span>
 
       </div>
-      <button className={classes.button} type='button'>&times;</button>
+      <button
+        className={classes.button}
+        onClick={onDeleteFromCart}
+        type='button'>
+        &times;
+      </button>
     </div>
   )
 }

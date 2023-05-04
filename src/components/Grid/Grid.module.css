@@ -1,8 +1,8 @@
 .grid {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat( auto-fill, 230px);
-  grid-template-rows: repeat( auto-fill, 327px);
+  grid-template-columns: repeat(auto-fill, 230px);
+  grid-template-rows: repeat(auto-fill, 342px);
   gap: 20px;
   justify-content: center;
   margin: 0 auto;
