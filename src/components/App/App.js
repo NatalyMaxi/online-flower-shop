@@ -1,32 +1,45 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import Basket from '../Basket/Basket';
 import Favourites from '../Favourites/Favourites';
 import Purchases from '../Purchases/Purchases';
 
 const App = () => {
+  const [cartOpen, setCartOpen] = useState(false)
+
+  const handleCartOpenClick = () => {
+    setCartOpen(true)
+  }
+
   return (
     // <CurrentUserContext.Provider >
     <>
-      <Header />
+      <Header
+        onOpenCart={handleCartOpenClick}
+      />
       <Routes>
         <Route
           path='/flowers'
-          element={<Main />}
-        />
-        <Route
-          path='basket'
-          element={<Basket />}
+          element={<Main
+            cartOpen={cartOpen}
+            onClose={() => setCartOpen(false)}
+          />}
         />
         <Route
           path='/favourites'
-          element={<Favourites />}
+          element={<Favourites
+            cartOpen={cartOpen}
+            onClose={() => setCartOpen(false)}
+          />}
         />
         <Route
           path='/purchases'
-          element={<Purchases />}
+          element={<Purchases
+            cartOpen={cartOpen}
+            onClose={() => setCartOpen(false)}
+          />}
         />
         <Route
           path='/'
