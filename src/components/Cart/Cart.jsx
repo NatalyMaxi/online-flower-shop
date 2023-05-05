@@ -34,7 +34,10 @@ const Cart = ({ number, cartOpen, onClose, addedToCart = [], onDeleteFromCart, t
                       name={item.name}
                       link={item.link}
                       price={item.price}
-                      onDeleteFromCart={onDeleteFromCart}
+                      onDeleteFromCart={() => {
+                        console.log(item)
+                        onDeleteFromCart(item)
+                      }}
                     />
                   })
                 }

@@ -27,6 +27,7 @@ const Main = ({ cartOpen, onClose, items, addedToCart, onAddToCart, onDeleteFrom
                 onAddToCart(item)
               }}
               onDeleteFromCart={() => {
+                console.log(item)
                 onDeleteFromCart(item)
               }}
               isAddedFlowers={isAddedFlowers}

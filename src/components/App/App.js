@@ -15,40 +15,45 @@ const App = () => {
   const totalPrice = addedToCart.reduce((sum, obj) => obj.price + sum, 0);
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         const [cartResponse, itemsResponse] = await Promise.all([
           axios.get('https://6453548cc18adbbdfe9a5d80.mockapi.io/api/cart'),
           axios.get('https://6453548cc18adbbdfe9a5d80.mockapi.io/api/flowers'),
         ]);
-        // console.log(cartResponse)
-        //console.log(itemsResponse)
         setAddedToCart(cartResponse.data);
         setItems(itemsResponse.data);
-      } catch (error) {
-        console.error(error);
+      } catch (err) {
+        console.error(err);
       }
     }
     fetchData();
   }, [setAddedToCart, setItems]);
 
   const handleAddToCart = (flower) => {
-    console.log(flower)
-    axios.post('https://6453548cc18adbbdfe9a5d80.mockapi.io/api/cart', flower).then((res) => {
-      console.log(res.data)
-      setAddedToCart([res.data, ...addedToCart])
-    })
+    try {
+      axios.post('https://6453548cc18adbbdfe9a5d80.mockapi.io/api/cart', flower).then((res) => {
+        console.log(res.data)
+        setAddedToCart([res.data, ...addedToCart])
+      })
+    } catch (err) {
+      console.error(err);
+    }
+
   }
 
   const handleDeleteFromCart = (flower) => {
     const del = addedToCart.find(item => item.flowerId === flower.flowerId)
+    console.log(del)
+    console.log(del.id)
     if (!del) return
     try {
-      axios.delete(`https://6453548cc18adbbdfe9a5d80.mockapi.io/api/cart${flower}`)
-      setAddedToCart((prev) => prev.filter((item) => item.flowerId !== del.flowerId))
-    } catch (error) {
-      alert('Ошибка при удалении из корзины');
-      console.error(error);
+      axios.delete(`https://6453548cc18adbbdfe9a5d80.mockapi.io/api/cart/${del.id}`)
+      console.log(setAddedToCart)
+      setAddedToCart((prev) => prev.filter((item) => item.id !== del.id))
+      console.log(setAddedToCart)
+    } catch (err) {
+      console.error(err);
     }
   }
   const handleCartOpenClick = () => {
