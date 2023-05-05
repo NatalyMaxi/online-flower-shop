@@ -7,10 +7,9 @@ import payment from '../../images/payment.png';
 import Button from '../Button/Button';
 import SmallCard from '../SmallCard/SmallCard';
 
-const Cart = ({ number, cartOpen, onClose, addedToCart = [], onDeleteFromCart }) => {
+const Cart = ({ number, cartOpen, onClose, addedToCart = [], onDeleteFromCart, totalPrice = 0 }) => {
   const navigate = useNavigate();
   const [orderBeenPlaced, setOderBeenPlaced] = useState(false)
-  const totalPrice = addedToCart.reduce((sum, obj) => obj.price + sum, 0);
 
   return (
     <div className={cartOpen ? `${classes.cart} ${classes.cart_open}` : `${classes.cart}`}>

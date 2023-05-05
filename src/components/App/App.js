@@ -12,6 +12,8 @@ const App = () => {
   const [items, setItems] = useState([]);
   const [addedToCart, setAddedToCart] = useState([]);
 
+  const totalPrice = addedToCart.reduce((sum, obj) => obj.price + sum, 0);
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -42,7 +44,7 @@ const App = () => {
     const del = addedToCart.find(item => item.flowerId === flower.flowerId)
     if (!del) return
     try {
-      axios.delete(`https://6453548cc18adbbdfe9a5d80.mockapi.io/api/cart${flower.flowerId}`)
+      axios.delete(`https://6453548cc18adbbdfe9a5d80.mockapi.io/api/cart${flower}`)
       setAddedToCart((prev) => prev.filter((item) => item.flowerId !== del.flowerId))
     } catch (error) {
       alert('Ошибка при удалении из корзины');
@@ -62,6 +64,7 @@ const App = () => {
     <>
       <Header
         onOpenCart={handleCartOpenClick}
+        totalPrice={totalPrice}
       />
       <Routes>
         <Route
@@ -74,6 +77,7 @@ const App = () => {
             onAddToCart={handleAddToCart}
             onDeleteFromCart={handleDeleteFromCart}
             isAddedFlowers={isAddedflowers}
+            totalPrice={totalPrice}
           />}
         />
         <Route

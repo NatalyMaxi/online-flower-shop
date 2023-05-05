@@ -3,7 +3,7 @@ import Logo from '../Logo/Logo';
 import Nav from '../Nav/Nav';
 import classes from './Header.module.css';
 
-const Header = ({ onOpenCart }) => {
+const Header = ({ onOpenCart, totalPrice }) => {
 
   return (
     <div className={classes.header}>
@@ -14,6 +14,7 @@ const Header = ({ onOpenCart }) => {
       </NavLink>
       <Nav
         onOpenCart={onOpenCart}
+        totalPrice={totalPrice}
       />
     </div>
   );

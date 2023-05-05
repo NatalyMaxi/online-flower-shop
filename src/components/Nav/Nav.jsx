@@ -4,7 +4,7 @@ import cart from '../../images/cart.svg';
 import heart from '../../images/heart.svg';
 import bookmarks from '../../images/bookmarks.svg';
 
-const Nav = ({ onOpenCart }) => {
+const Nav = ({ onOpenCart, totalPrice = 0 }) => {
 
   return (
     <nav className={classes.nav}>
@@ -12,7 +12,7 @@ const Nav = ({ onOpenCart }) => {
         <ul className={classes.nav__items}>
           <li className={classes.nav__item}>
             <div className={classes.wrapper} onClick={onOpenCart}>
-              <img className={classes.nav__img} src={cart} alt='Корзина' /> <span>1280</span>
+              <img className={classes.nav__img} src={cart} alt='Корзина' /> <span>{totalPrice}</span>
             </div>
           </li>
           <li className={classes.nav__item}>

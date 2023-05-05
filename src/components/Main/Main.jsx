@@ -5,7 +5,7 @@ import Search from '../Search/Search';
 import Cart from '../Cart/Cart';
 import Card from '../Card/Card';
 
-const Main = ({ cartOpen, onClose, items, addedToCart, onAddToCart, onDeleteFromCart, isAddedFlowers }) => {
+const Main = ({ cartOpen, onClose, items, addedToCart, onAddToCart, onDeleteFromCart, isAddedFlowers, totalPrice }) => {
 
   return (
     <main className={classes.content}>
@@ -39,6 +39,7 @@ const Main = ({ cartOpen, onClose, items, addedToCart, onAddToCart, onDeleteFrom
         cartOpen={cartOpen}
         addedToCart={addedToCart}
         onDeleteFromCart={onDeleteFromCart}
+        totalPrice={totalPrice}
       />
     </main>
   );
