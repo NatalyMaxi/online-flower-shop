@@ -11,7 +11,7 @@ const SmallCard = ({ name, link, price, onDeleteFromCart }) => {
       <img className={classes.img} src={link} alt={`${name}`} />
       <div className={classes.priceContainer}>
         <h4 className={classes.title}>{name}</h4>
-        <span className={classes.price}>{`Цена: ${price}`}</span>
+        <span className={classes.price}>{`Цена: ${price} рублей`}</span>
 
       </div>
       <button
